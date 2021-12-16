@@ -30,7 +30,8 @@ const FizzBuzz = () => {
     // button onclick, print out game answer from handleFizzBuzzClick function with passed arg in console
     return (
         <div>
-            <button id="btn" onClick={() => handleFizzBuzzClick(15)}>SantanderBuzz</button>
+            <h2 id="myText">This is a SantanderBuzzGame</h2>
+            <button id="btn" onClick={() => handleFizzBuzzClick(15)}>Click Me</button>
         </div>
     );
 }
