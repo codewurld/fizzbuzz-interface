@@ -1,4 +1,5 @@
 import './fizzBuzz.css';
+import { useState } from 'react';
 
 // function takes in no
 // when divisible by 3 return fizz
@@ -10,17 +11,21 @@ import './fizzBuzz.css';
 
 const FizzBuzz = () => {
 
+    // set initial state to empty string
+    // when button is clicked change state to output
+    const [fizzBuzzGame, setFizzBuzzGame] = useState("");
+
     const handleFizzBuzzClick = (num) => {
         // check if no is divisible by 3 or 5 or combination of both
         // return fizzbuzz, fizz, buzz, or number
         if (num % 3 === 0 && num % 5 === 0) {
-            console.log("fizzbuzz")
+            return "fizzbuzz"
         } else if (num % 3 === 0) {
-            console.log("fizz")
+            return "fizz"
         } else if (num % 5 === 0) {
-            console.log("buzz")
+            return "buzz"
         } else {
-            console.log(num)
+            return num
         }
     }
 
@@ -28,10 +33,12 @@ const FizzBuzz = () => {
     console.log(handleFizzBuzzClick(20));
 
     // button onclick, print out game answer from handleFizzBuzzClick function with passed arg in console
+    // change state and render result of game in p tag when button is clicked
     return (
         <div>
-            <h2 id="myText">This is a SantanderBuzzGame</h2>
-            <button id="btn" onClick={() => handleFizzBuzzClick(15)}>Click Me</button>
+            <h2 id="myText">This is a SantanderBuzz Game</h2>
+            <p>{fizzBuzzGame}</p>
+            <button id="btn" onClick={() => setFizzBuzzGame(handleFizzBuzzClick(15))}>Click Me</button>
         </div>
     );
 }
